@@ -6,7 +6,7 @@ pipeline {
         stage ("take backup") {
             steps {
                 sh '''
-                d=$(date +%d-%m-%y)
+                d=$(date +%d-%m-%y-%T)
                 mysqldump -u root -h 172.18.0.2 -proot testdb --column-statistics=0 > /opt/mysql-backup.$d.sql
                 '''
             }
