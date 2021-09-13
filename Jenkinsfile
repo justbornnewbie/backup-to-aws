@@ -7,7 +7,7 @@ pipeline {
             steps {
                 sh '''
                 d=$(date +%d-%m-%y-%T)
-                echo $myd > date.txt
+                echo $d > date.txt
                 myd=$(cat date.txt)
                 mysqldump -u root -h 172.18.0.2 -proot testdb --column-statistics=0 > /opt/mysql-backup.$myd.sql
                 '''
